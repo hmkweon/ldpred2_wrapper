@@ -51,21 +51,21 @@ prep_chr <-  function(CHR){
     # output: NULL
         # the results are saved in RDS file
 run_chr <- function(CHR){
-s <- Sys.time()
-h2_i = ifelse(CHR_LD[[CHR]]$LDSC[2]<0 | is.na(CHR_LD[[CHR]]$LDSC[2]), 1e-100, CHR_LD[[CHR]]$LDSC[2])
-new_beta <- snp_ldpred2_auto(CHR_LD[[CHR]]$SFBM, match[chr==CHR], h2_init = h2_i,  vec_p_init = 0.2,   shrink_corr = 1, allow_jump_sign = TRUE)
+    s <- Sys.time()
+    h2_i = ifelse(CHR_LD[[CHR]]$LDSC[2]<0 | is.na(CHR_LD[[CHR]]$LDSC[2]), 1e-100, CHR_LD[[CHR]]$LDSC[2])
+    new_beta <- snp_ldpred2_auto(CHR_LD[[CHR]]$SFBM, match[chr==CHR], h2_init = h2_i,  vec_p_init = 0.2,   shrink_corr = 1, allow_jump_sign = TRUE)
 
-file <- paste0("../TEMP/", out, "_LDpred_chr", CHR, ".Rds")
-saveRDS(new_beta, file)
+    file <- paste0("../TEMP/", out, "_LDpred_chr", CHR, ".Rds")
+    saveRDS(new_beta, file)
 
-e <- Sys.time()
-cat("\n Results for chr ", CHR, " saved to ", file, ", elapsed time: ", difftime(e,s,units="mins"), "mins  \n")
+    e <- Sys.time()
+    cat("\n Results for chr ", CHR, " saved to ", file, ", elapsed time: ", difftime(e,s,units="mins"), "mins  \n")
 
-cat("CHR ", CHR, " estimated p: ", new_beta[[1]]$p_est, "\n")
-cat("CHR ", CHR, " estimated h2: ", new_beta[[1]]$h2_est, "\n")
-gc(verbose=FALSE)
+    cat("CHR ", CHR, " estimated p: ", new_beta[[1]]$p_est, "\n")
+    cat("CHR ", CHR, " estimated h2: ", new_beta[[1]]$h2_est, "\n")
+    gc(verbose=FALSE)
 
-return(NULL)
+    return(NULL)
 }
 ############################################################333
 
