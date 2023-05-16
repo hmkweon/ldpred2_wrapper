@@ -2,7 +2,7 @@
 
 __Usage__:
 
-bash ${ref_map} ${LD} ${g_path} ${sumstat} ${format} ${output}
+bash RUN_MAIN.sh ${ref_map} ${LD} ${g_path} ${sumstat} ${format} ${output}
 
 
 __Inputs__:
