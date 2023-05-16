@@ -28,4 +28,4 @@ Rscript --verbose 1_match_sumstat.R ${sumstat} ${g_path} ${ref_map} ${output} ${
 ##################################
 ## 2. Run LDpred main step 
 ##################################
-Rscript ${ref_map} ${LD} ${output}
+Rscript --verbose ${ref_map} ${LD} ${output}
